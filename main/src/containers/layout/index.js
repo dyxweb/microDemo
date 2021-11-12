@@ -7,7 +7,7 @@ import './index.css';
 
 const Layout = ({ children, history }) => {
   const historyPush = (path) => {
-    console.log(path)
+    history.push(path)
   }
   return (
     <div className="layout">

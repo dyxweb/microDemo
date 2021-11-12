@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open --port 9001"
   },
   "author": "",
   "license": "ISC",
@@ -25,7 +25,6 @@
     "webpack-dev-server": "^3.1.7"
   },
   "dependencies": {
-    "prop-types": "^15.6.2",
     "react": "~16.13.1",
     "react-dom": "~16.13.1",
     "react-hot-loader": "^4.3.5",

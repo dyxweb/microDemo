@@ -1,26 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom';
-import AllPageScroll from '../containers/AllWidth/PageScroll';
-import AllContentScroll from '../containers/AllWidth/ContentScroll';
-import PartPageScroll from '../containers/PartWidth/PageScroll';
-import PartContentScroll from '../containers/PartWidth/ContentScroll';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import Layout from '../containers/layout';
+import News from '../containers/news';
+import Log from '../containers/log';
 
-class App extends React.Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <Switch>
-            <Route path="/allpage" component={AllPageScroll} />
-            <Route path="/allcontent" component={AllContentScroll} />
-            <Route path="/partpage" component={PartPageScroll} />
-            <Route path="/partContent" component={PartContentScroll} />
-            <Redirect from='/' to='/allpage' />               
-          </Switch>
-        </div>
-      </Router>
-    )  
-  }
+const App = () => {
+  return (
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path="/childTwo/news" component={News} />
+          <Route exact path="/childTwo/log" component={Log} />
+          <Redirect from="/childTwo"  to='/childTwo/news' />               
+        </Switch>
+      </Layout>
+    </Router>
+  )  
 }
 
 export default App;
