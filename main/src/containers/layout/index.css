@@ -1,0 +1,21 @@
+.layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  height: 60px;
+  display: flex;
+  flex-wrap: nowrap;
+  background: #eee;
+}
+.headerItem {
+  flex-grow: 1;
+  line-height: 60px;
+  text-align: center;
+}
+.content {
+  padding-top: 16px;
+  flex-grow: 1;
+  overflow: auto;
+}
