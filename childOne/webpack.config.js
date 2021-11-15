@@ -1,18 +1,26 @@
 const webpack = require('webpack');
+const { name } = require('./package');
 module.exports = {
   devtool: 'eval-source-map',
   mode: 'development',
   entry:  __dirname + "/src/index.js",
   output: {
     path: __dirname + "/public",
-    filename: "bundle.js"
+    filename: "bundle.js",
+    library: `${name}-[name]`,
+    libraryTarget: 'umd',
+    jsonpFunction: `webpackJsonp_${name}`,
+    globalObject: 'window',
   },
   devServer: {
     contentBase: "./public",
     historyApiFallback: true,
     inline: true,
     hot:true,
-    progress: true
+    progress: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   } ,
   module: {
     rules: [
