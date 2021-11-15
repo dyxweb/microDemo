@@ -16,7 +16,10 @@ const Layout = ({ children, history }) => {
         <div className="headerItem" onClick={() => historyPush('/childOne')}>one</div>
         <div className="headerItem" onClick={() => historyPush('/childTwo')}>two</div>
       </div>
-      <div className="content">{children}</div>
+      <div className="content">
+        {children}
+        <div id="microContainer" style={{ height: "100%" }}></div>
+      </div>
     </div>
   )
 }

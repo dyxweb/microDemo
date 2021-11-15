@@ -13,9 +13,9 @@
   flex-grow: 1;
   line-height: 60px;
   text-align: center;
+  border-right: 1px solid #fff;
 }
 .content {
-  padding-top: 16px;
   flex-grow: 1;
   overflow: auto;
 }

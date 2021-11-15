@@ -9,6 +9,7 @@
 .menuItem {
   line-height: 60px;
   text-align: center;
+  border-bottom: 1px solid #fff;
 }
 .content {
   padding-top: 16px;

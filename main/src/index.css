@@ -3,6 +3,7 @@
   padding: 0;
 }
 
-html, body, #root {
+/* 子应用中没有了html body，顶层元素是data-name属性对应子元素name的值 */
+html, body, #root, div[data-name="childOne"], div[data-name="childTwo"] {
   height: 100%;
 }
