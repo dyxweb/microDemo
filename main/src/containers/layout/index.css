@@ -1,21 +1,21 @@
-.layout {
+.main-layout {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.header {
+.main-header {
   height: 60px;
   display: flex;
   flex-wrap: nowrap;
   background: #eee;
 }
-.headerItem {
+.main-headerItem {
   flex-grow: 1;
   line-height: 60px;
   text-align: center;
   border-right: 1px solid #fff;
 }
-.content {
+.main-content {
   flex-grow: 1;
   overflow: auto;
 }

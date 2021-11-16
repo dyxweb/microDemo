@@ -10,13 +10,13 @@ const Layout = ({ children, history }) => {
     history.push(path)
   }
   return (
-    <div className="layout">
-      <div className="header">
-        <div className="headerItem" onClick={() => historyPush('/')}>首页</div>
-        <div className="headerItem" onClick={() => historyPush('/childOne')}>one</div>
-        <div className="headerItem" onClick={() => historyPush('/childTwo')}>two</div>
+    <div className="main-layout">
+      <div className="main-header">
+        <div className="main-headerItem" onClick={() => historyPush('/')}>首页</div>
+        <div className="main-headerItem" onClick={() => historyPush('/childOne')}>one</div>
+        <div className="main-headerItem" onClick={() => historyPush('/childTwo')}>two</div>
       </div>
-      <div className="content">
+      <div className="main-content">
         {children}
         <div id="microContainer" style={{ height: "100%" }}></div>
       </div>

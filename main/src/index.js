@@ -22,7 +22,8 @@ registerMicroApps([
 // 启动 qiankun
 start({
   sandbox: {
-    strictStyleIsolation: true, // 严格的样式隔离，默认只有子应用之间的隔离，加上之后各应用之间都会样式隔离
+    // strictStyleIsolation 直接使用会使子应用不响应点击事件
+    // strictStyleIsolation: true, // 严格的样式隔离，默认只有子应用之间的隔离，加上之后各应用之间都会样式隔离
     // experimentalStyleIsolation: true,  // 样式类修改添加了子应用的属性优先级变高
   }
 });
