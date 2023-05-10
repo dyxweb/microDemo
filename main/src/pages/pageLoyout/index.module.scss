@@ -1,0 +1,20 @@
+.pageLayout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    .name {
+      color: #fff;
+      width: 80px;
+    }
+    .menu {
+      flex: auto;
+    }
+  }
+  .content {
+    flex-grow: 1;
+    overflow: auto;
+  }
+}
