@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const { name } = require('../package.json');
 
 module.exports = {
   mode: 'development',
@@ -10,6 +11,9 @@ module.exports = {
     client: {
       overlay: false,
     },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    }
   },
   plugins: [
     // 将css独立打包
@@ -19,6 +23,7 @@ module.exports = {
     // 状态重置问题（更改相关代码保存后，state状态会重置）
     new ReactRefreshWebpackPlugin({
       overlay: false,
+      library: `${name}-[name]`
     }),
   ]
 }

@@ -10,10 +10,13 @@ import PageLoyout from '@/pages/pageLoyout';
 import Home from '@/pages/home';
 import Exer from '@/pages/exer';
 import './index.css';
+import './public-path';
 
-ReactDOM.render(
-  <ConfigProvider locale={zhCN}>
-      <BrowserRouter>
+function render(props: any) {
+  const { container } = props;
+  ReactDOM.render(
+    <ConfigProvider locale={zhCN}>
+      <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/micro-react' : '/'}>
         <PageLoyout>
           <Switch>
             <Route exact path='/' component={Home} />
@@ -21,6 +24,25 @@ ReactDOM.render(
           </Switch>
         </PageLoyout>
       </BrowserRouter>
-  </ConfigProvider>,
-  document.getElementById('root')
-);
+    </ConfigProvider>,
+    container ? container.querySelector('#root') : document.querySelector('#root')
+  );
+}
+
+if (!window.__POWERED_BY_QIANKUN__) {
+  render({});
+}
+
+export async function bootstrap() {
+  console.log('[react16] react app bootstraped');
+}
+
+export async function mount(props: any) {
+  console.log('[react16] props from main framework', props);
+  render(props);
+}
+
+export async function unmount(props: any) {
+  const { container } = props;
+  ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
+}

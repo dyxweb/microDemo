@@ -7,3 +7,8 @@ declare module '*.scss' {
   export default classes;
 }
 
+declare interface Window {
+  __POWERED_BY_QIANKUN__: any;
+}
+
+
