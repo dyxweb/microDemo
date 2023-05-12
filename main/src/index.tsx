@@ -10,20 +10,22 @@ import 'antd/dist/antd.css';
 import PageLoyout from '@/pages/pageLoyout';
 import Home from '@/pages/home';
 import Exer from '@/pages/exer';
+import MicroContainer from '@/pages/microContainer';
 import './index.css';
 
 ReactDOM.render(
   <ConfigProvider locale={zhCN}>
-      <BrowserRouter>
-        <PageLoyout>
-          {/* 微应用挂载节点 */}
-          <div id="microContainer" />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/exer' component={Exer} />
-          </Switch>
-        </PageLoyout>
-      </BrowserRouter>
+    <BrowserRouter>
+      <PageLoyout>
+        {/* 微应用挂载节点 */}
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/exer' component={Exer} />
+          <Route path='/micro-react' component={MicroContainer} />
+          <Route path='/micro-vue' component={MicroContainer} />
+        </Switch>
+      </PageLoyout>
+    </BrowserRouter>
   </ConfigProvider>,
   document.getElementById('root')
 );
@@ -43,4 +45,6 @@ registerMicroApps([
   },
 ]);
 // 启动 qiankun
-start();
+start({
+  sandbox: { experimentalStyleIsolation: true }
+});

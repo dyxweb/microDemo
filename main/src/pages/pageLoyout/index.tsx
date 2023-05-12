@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 const { Header, Content } = Layout;
 const PageLoyout = (props: any) => {
   const { children, history, location } = props;
-  const [activeKey, setActiveKey] = useState(location.pathname); // 激活的menu key
+  const [activeKey, setActiveKey] = useState(`/${location.pathname.split('/')[1]}`); // 激活的menu key
   const menuData = [
     {
       key: '/',
@@ -18,6 +18,14 @@ const PageLoyout = (props: any) => {
     {
       key: '/exer',
       label: '主应用exer路由'
+    },
+    {
+      key: '/micro-react',
+      label: 'react子应用'
+    },
+    {
+      key: '/micro-vue',
+      label: 'vue子应用'
     },
   ]
 
