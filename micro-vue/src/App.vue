@@ -2,9 +2,11 @@
   <div class="layout">
     <el-container>
       <el-aside width="250px">
-        <el-menu router :default-active="$route.path">
-          <el-menu-item index="/">vue子应用home路由</el-menu-item>
+        <el-menu :default-active="$route.path" @select="menuSelect">
+          <el-menu-item index="/home">vue子应用home路由</el-menu-item>
           <el-menu-item index="/exer">vue子应用exer路由</el-menu-item>
+          <el-menu-item index="/">主应用</el-menu-item>
+          <el-menu-item index="/micro-react/exer">react子应用exer路由</el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>
@@ -16,6 +18,16 @@
 <script>
 export default {
   name: 'App',
+  methods: {
+    menuSelect(key) {
+      if (key.startsWith('/micro-react') || key === '/') {
+        window.history.pushState({}, '', key);
+      } else {
+        this.$router.push(key);
+      }
+    }
+  }
+
 }
 </script>
 <style>

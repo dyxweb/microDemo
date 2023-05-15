@@ -1,7 +1,7 @@
 /**
  * pageLoyout
  */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Layout, Menu } from 'antd';
 import { withRouter } from "react-router-dom";
 import styles from './index.module.scss';
@@ -28,6 +28,11 @@ const PageLoyout = (props: any) => {
       label: 'vue子应用'
     },
   ]
+
+  // 监听路由变化修改激活状态
+  useEffect(() => {
+    setActiveKey(`/${props.location.pathname.split('/')[1]}`)
+  }, [props.location])
 
   // menu点击
   const onMenuSelect = ({ item, key } : { item: any, key: string }) => {

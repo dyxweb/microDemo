@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { ConfigProvider } from 'antd';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
 import zhCN from 'antd/lib/locale/zh_CN';
@@ -19,7 +19,8 @@ function render(props: any) {
       <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/micro-react' : '/'}>
         <PageLoyout>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Redirect exact from='/' to='/home' />
+            <Route exact path='/home' component={Home} />
             <Route exact path='/exer' component={Exer} />
           </Switch>
         </PageLoyout>
