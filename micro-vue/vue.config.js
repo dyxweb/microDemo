@@ -1,8 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
+const path = require('path');
 const { name } = require('./package');
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  outputDir: path.resolve(__dirname, './build'),
+  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/microVue/build/',
   devServer: {
     port: 8002,
     open: true,

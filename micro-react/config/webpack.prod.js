@@ -6,6 +6,9 @@ const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
+  output: {
+    publicPath: '/microReact/build/',
+  },
   plugins: [
     // 将css独立打包
     new MiniCssExtractPlugin({

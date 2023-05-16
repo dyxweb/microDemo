@@ -11,7 +11,7 @@ function render(props = {}) {
   if (instance) return;
   const { container } = props;
   const router = createRouter({
-    history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/micro-vue/' : '/'),
+    history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/micro-vue/' : '/microVue/'),
     routes,
   })
   instance = createApp(App);
