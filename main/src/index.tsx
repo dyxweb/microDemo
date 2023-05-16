@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { registerMicroApps, start } from 'qiankun';
 import { ConfigProvider } from 'antd';
@@ -13,7 +13,7 @@ import Exer from '@/pages/exer';
 import MicroContainer from '@/pages/microContainer';
 import './index.css';
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root') as Element).render(
   <ConfigProvider locale={zhCN}>
     <BrowserRouter>
       <PageLoyout>
@@ -26,9 +26,8 @@ ReactDOM.render(
         </Switch>
       </PageLoyout>
     </BrowserRouter>
-  </ConfigProvider>,
-  document.getElementById('root')
-);
+  </ConfigProvider>
+)
 
 registerMicroApps([
   {
@@ -44,6 +43,7 @@ registerMicroApps([
     activeRule: '/micro-vue',
   },
 ]);
+
 // 启动 qiankun
 start({
   sandbox: { experimentalStyleIsolation: true }

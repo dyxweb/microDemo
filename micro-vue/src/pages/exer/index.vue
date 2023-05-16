@@ -1,5 +1,5 @@
 <template>
-  <div>exer</div>
+  <div>vueExer</div>
 </template>
 <script>
 export default {

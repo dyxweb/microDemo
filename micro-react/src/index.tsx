@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { ConfigProvider } from 'antd';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
@@ -12,9 +12,11 @@ import Exer from '@/pages/exer';
 import './index.css';
 import './public-path';
 
+let root: any; // 组件挂载节点
 function render(props: any) {
   const { container } = props;
-  ReactDOM.render(
+  root = ReactDOM.createRoot(container ? container.querySelector('#root') : document.querySelector('#root'));
+  root.render(
     <ConfigProvider locale={zhCN}>
       <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/micro-react' : '/'}>
         <PageLoyout>
@@ -25,8 +27,7 @@ function render(props: any) {
           </Switch>
         </PageLoyout>
       </BrowserRouter>
-    </ConfigProvider>,
-    container ? container.querySelector('#root') : document.querySelector('#root')
+    </ConfigProvider>
   );
 }
 
@@ -35,15 +36,15 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap() {
-  console.log('[react16] react app bootstraped');
+  console.log('react子应用 bootstrap');
 }
 
 export async function mount(props: any) {
-  console.log('[react16] props from main framework', props);
+  console.log('react子应用 mount');
   render(props);
 }
 
-export async function unmount(props: any) {
-  const { container } = props;
-  ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
+export async function unmount() {
+  console.log('react子应用 unmount');
+  root.unmount();
 }
