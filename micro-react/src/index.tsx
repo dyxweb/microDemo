@@ -18,7 +18,7 @@ function render(props: any) {
   root = ReactDOM.createRoot(container ? container.querySelector('#root') : document.querySelector('#root'));
   root.render(
     <ConfigProvider locale={zhCN}>
-      <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/micro-react' : '/'}>
+      <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/micro-react/' : '/child/micro-react/'}>
         <PageLoyout>
           <Switch>
             <Redirect exact from='/' to='/home' />

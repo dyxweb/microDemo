@@ -29,16 +29,17 @@ ReactDOM.createRoot(document.getElementById('root') as Element).render(
   </ConfigProvider>
 )
 
+// 注册子应用
 registerMicroApps([
   {
     name: 'micro-react',
-    entry: '//localhost:8001',
+    entry: process.env.NODE_ENV === 'development' ? '//localhost:8001' : '/child/micro-react/',
     container: '#microContainer',
     activeRule: '/micro-react',
   },
   {
     name: 'micro-vue',
-    entry: '//localhost:8002',
+    entry: process.env.NODE_ENV === 'development' ? '//localhost:8002' : '/child/micro-vue/',
     container: '#microContainer',
     activeRule: '/micro-vue',
   },
